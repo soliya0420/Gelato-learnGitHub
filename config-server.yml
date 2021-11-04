@@ -1,0 +1,33 @@
+spring:
+  profile:
+    active: dev
+
+---
+server:
+  port: 8201
+spring:
+  profile: dev
+  application:
+    name: SpringCloud-provider-dept
+ 
+
+#eureka的配置,让这个module注册到哪里
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka/,http://localhost:7002/eureka/,http://localhost:7003/eureka/
+
+---
+server:
+  port: 8201
+spring:
+  profile: test
+  application:
+    name: SpringCloud-provider-dept
+ 
+
+#eureka的配置,让这个module注册到哪里
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka/,http://localhost:7002/eureka/,http://localhost:7003/eureka/
