@@ -1,0 +1,69 @@
+spring:
+  profiles:
+    active: eureka001
+---
+server:
+  port: 7001
+spring:
+  profile: eureka001
+eureka:
+  instance:
+    a-s-g-name: eureka001 #eureka的名字
+  client:
+    #register-with-eureka 在eureka中注册
+    #这个值假如是true的话,就说明要从注册中心注册自己,因为这个是服务端,所以不需要在注册中心注册自
+    #所以值为false
+    register-with-eureka: false
+    #fetch-registry的值为false时,表示自己是注册中心
+    fetch-registry: false
+    #服务网址
+    service-url:
+      #localhost:7001 这个网址是监控地址
+      #注册地址/与eureka进行交互的地址
+      #单机模式http://${eureka.instance.a-s-g-name}:${server.port}/eureka/
+      #多机模式用逗号隔开.
+      defaultZone: http://eureka001:7001/eureka/,http://eureka002:7002/eureka/,http://eureka003:7003/eureka/
+---
+server:
+  port: 7002
+spring:
+  profile: eureka002
+eureka:
+  instance:
+    a-s-g-name: eureka002 #eureka的名字
+  client:
+    #register-with-eureka 在eureka中注册
+    #这个值假如是true的话,就说明要从注册中心注册自己,因为这个是服务端,所以不需要在注册中心注册自
+    #所以值为false
+    register-with-eureka: false
+    #fetch-registry的值为false时,表示自己是注册中心
+    fetch-registry: false
+    #服务网址
+    service-url:
+      #localhost:7001 这个网址是监控地址
+      #注册地址/与eureka进行交互的地址
+      #单机模式http://${eureka.instance.a-s-g-name}:${server.port}/eureka/
+      #多机模式用逗号隔开.
+      defaultZone: http://eureka001:7001/eureka/,http://eureka002:7002/eureka/,http://eureka003:7003/eureka/
+---
+server:
+  port: 7003
+spring:
+  profile: eureka003
+eureka:
+  instance:
+    a-s-g-name: eureka003 #eureka的名字
+  client:
+    #register-with-eureka 在eureka中注册
+    #这个值假如是true的话,就说明要从注册中心注册自己,因为这个是服务端,所以不需要在注册中心注册自
+    #所以值为false
+    register-with-eureka: false
+    #fetch-registry的值为false时,表示自己是注册中心
+    fetch-registry: false
+    #服务网址
+    service-url:
+      #localhost:7001 这个网址是监控地址
+      #注册地址/与eureka进行交互的地址
+      #单机模式http://${eureka.instance.a-s-g-name}:${server.port}/eureka/
+      #多机模式用逗号隔开.
+      defaultZone: http://eureka001:7001/eureka/,http://eureka002:7002/eureka/,http://eureka003:7003/eureka/

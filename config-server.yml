@@ -1,0 +1,103 @@
+spring:
+  profiles:
+    active: provider001
+---
+server:
+  port: 8001
+#mybatis配置
+mybatis:
+  type-aliases-package: cn.july.springcloud.pojo
+  mapper-locations: classpath:mybatis/mapper/*.xml
+  #Spring配置
+spring:
+  profiles: provider001
+  application:
+    name: SpringCloud-provider-dept
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource #数据源
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/springcloud?serverTimezone=GMT%2B8&characterEncoding=UTF-8&useSSL=false
+    username: root
+    password: 123456
+#    driver-class-name: org.gjt.mm.mysql.Driver
+
+#eureka的配置,让这个module注册到哪里
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka/,http://localhost:7002/eureka/,http://localhost:7003/eureka/
+  instance:
+    instance-id: springcloud-provider-8081 #在eureka交互页面显示的默认描述,在status列
+    #新版本配置问题prefer-ip-address,使用新版本在Ribbon进行负载均衡的情况,
+    #在消费者使用restTemplate的get/post方法传入url时,通过服务名代替以往的网页
+    #新版本会导致无法获取内部注册中心的url,所以需要加入该配置 prefer-ip-address:true
+    prefer-ip-address: true
+
+---  
+server:
+  port: 8002
+#mybatis配置
+mybatis:
+  type-aliases-package: cn.july.springcloud.pojo
+  mapper-locations: classpath:mybatis/mapper/*.xml
+  #Spring配置
+spring:
+  profiles: provider002
+  application:
+    name: SpringCloud-provider-dept
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource #数据源
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/springcloud01?serverTimezone=GMT%2B8&characterEncoding=UTF-8&useSSL=false
+    username: root
+    password: 123456
+#    driver-class-name: org.gjt.mm.mysql.Driver
+
+#eureka的配置,让这个module注册到哪里
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka/,http://localhost:7002/eureka/,http://localhost:7003/eureka/
+  instance:
+    instance-id: springcloud-provider-8081 #在eureka交互页面显示的默认描述,在status列
+    #新版本配置问题prefer-ip-address,使用新版本在Ribbon进行负载均衡的情况,
+    #在消费者使用restTemplate的get/post方法传入url时,通过服务名代替以往的网页
+    #新版本会导致无法获取内部注册中心的url,所以需要加入该配置 prefer-ip-address:true
+    prefer-ip-address: true
+
+---
+
+server:
+  port: 8003
+#mybatis配置
+mybatis:
+  type-aliases-package: cn.july.springcloud.pojo
+  mapper-locations: classpath:mybatis/mapper/*.xml
+  #Spring配置
+spring:
+  profiles: provider003
+  application:
+    name: SpringCloud-provider-dept
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource #数据源
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/springcloud02?serverTimezone=GMT%2B8&characterEncoding=UTF-8&useSSL=false
+    username: root
+    password: 123456
+#    driver-class-name: org.gjt.mm.mysql.Driver
+
+#eureka的配置,让这个module注册到哪里
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka/,http://localhost:7002/eureka/,http://localhost:7003/eureka/
+  instance:
+    instance-id: springcloud-provider-8081 #在eureka交互页面显示的默认描述,在status列
+    #新版本配置问题prefer-ip-address,使用新版本在Ribbon进行负载均衡的情况,
+    #在消费者使用restTemplate的get/post方法传入url时,通过服务名代替以往的网页
+    #新版本会导致无法获取内部注册中心的url,所以需要加入该配置 prefer-ip-address:true
+    prefer-ip-address: true
+
+    
+         
+    
