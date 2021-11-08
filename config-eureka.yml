@@ -1,11 +1,11 @@
 spring:
   profiles:
-    active: eureka001
+    active: eurekafirst
 ---
 server:
   port: 7001
 spring:
-  profile: eurekafirst
+  profiles: eurekafirst
 eureka:
   instance:
     a-s-g-name: eureka001 #eureka的名字
@@ -27,7 +27,7 @@ eureka:
 server:
   port: 7002
 spring:
-  profile: eurekasecond
+  profiles: eurekasecond
 eureka:
   instance:
     a-s-g-name: eureka002 #eureka的名字
@@ -49,7 +49,7 @@ eureka:
 server:
   port: 7003
 spring:
-  profile: eurekathird
+  profiles: eurekathird
 eureka:
   instance:
     a-s-g-name: eureka003 #eureka的名字
